@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 
 public class StorageUtility {
-    private static final String CONN_FILE_PATH = "C:\\Users\\Sandeep Singh\\IdeaProjects\\MavenWebApp\\connFile.json";
+    private static final String CONN_FILE_PATH = "D:\\ideaprojects\\connFile.json";
     private static File connFile;
 
 

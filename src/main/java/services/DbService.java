@@ -130,7 +130,6 @@ public class DbService {
                 }
             }
         } catch (ClassNotFoundException | SQLException e) {
-
             JSONObject noConnObject = new JSONObject();
             noConnObject.put("errorCode:", 503);
             noConnObject.put("errorMessage:", "Connection failed to database.");
@@ -169,6 +168,7 @@ public class DbService {
 
         System.out.println("GET /databases/" + connectionId + "/schemas called");
         JSONObject object = null;
+        Connection connection = null;
         try {
             JSONObject connections = JsonUtility.readJson();
             if (connections != null) {
@@ -180,7 +180,7 @@ public class DbService {
                         if (dbObject.getString("Schemas") != null && !dbObject.getString("Schemas").isEmpty()) {
                             object = dbObject;
                         } else {
-                            Connection connection = DbUtility.createConnection(connectionId);
+                            connection = DbUtility.createConnection(connectionId);
 
                             List<String> schema = null;
                             if (connection != null) {
@@ -191,7 +191,7 @@ public class DbService {
                     }
                 }
             } else {
-                Connection connection = DbUtility.createConnection(connectionId);
+                connection = DbUtility.createConnection(connectionId);
 
                 List<String> schema = null;
                 if (connection != null) {
@@ -202,6 +202,16 @@ public class DbService {
             return Response.status(200).entity(object.toString(4)).build();
         } catch (Exception e) {
             System.out.println(e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                    System.out.println("Connection closed !!!");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+            }
         }
         return null;
     }
@@ -231,53 +241,68 @@ public class DbService {
     public Response getTables(
             @PathParam("connectionId") String connectionId,
             @PathParam("schemaId") String schemaId
-    ) throws ParseException, JSONException, IOException, SQLException, ClassNotFoundException {
+    ) throws ParseException, JSONException, IOException, ClassNotFoundException {
         System.out.println("GET /database/connectionId/schemas " + schemaId + "/tables called");
         JSONObject object = null;
+        Connection connection = null;
+        try {
+            connection = DbUtility.createConnection(connectionId);
 
-        schemaNameObj = JsonUtility.schemaName(schemaId);
-        JSONObject connections = JsonUtility.readJson();
-        if (connections != null) {
 
-            JSONArray connArr = connections.getJSONArray("Connections");
-            for (int i = 0; i < connArr.length(); i++) {
-                JSONObject dbObject = connArr.getJSONObject(i);
-                String dbId = dbObject.getString("connectionId");
-                if (dbId.equals(connectionId)) {
-                    JSONArray tableArr = dbObject.getJSONArray("Schemas");
-                    for (int j = 0; j < tableArr.length(); j++) {
-                        JSONObject tableObject = tableArr.getJSONObject(j);
-                        String tableId = tableObject.getString("Id");
-                        if (tableId.equals(schemaId)) {
-                            if (tableObject.getString("Tables") != null && !tableObject.getString("Tables").isEmpty()) {
-                                object = tableObject;
-                            } else {
-                                Connection connection = DbUtility.createConnection(connectionId);
+            schemaNameObj = JsonUtility.schemaName(schemaId);
+            JSONObject connections = JsonUtility.readJson();
+            if (connections != null) {
 
-                                List<String> tables = null;
-                                if (connection != null) {
-                                    tables = DbUtility.getTable(connection, schemaId);
+                JSONArray connArr = connections.getJSONArray("Connections");
+                for (int i = 0; i < connArr.length(); i++) {
+                    JSONObject dbObject = connArr.getJSONObject(i);
+                    String dbId = dbObject.getString("connectionId");
+                    if (dbId.equals(connectionId)) {
+                        JSONArray tableArr = dbObject.getJSONArray("Schemas");
+                        for (int j = 0; j < tableArr.length(); j++) {
+                            JSONObject tableObject = tableArr.getJSONObject(j);
+                            String tableId = tableObject.getString("Id");
+                            if (tableId.equals(schemaId)) {
+                                if (tableObject.getString("Tables") != null && !tableObject.getString("Tables").isEmpty()) {
+                                    object = tableObject;
+                                } else {
+                                    connection = DbUtility.createConnection(connectionId);
+                                    List<String> tables = null;
+                                    if (connection != null) {
+                                        tables = DbUtility.getTable(connection, schemaId);
+                                    }
+                                    object = JsonUtility.jsonForTables(tables, schemaId);
                                 }
-                                object = JsonUtility.jsonForTables(tables, schemaId);
+
+
                             }
-
-
                         }
-                    }
 
+                    }
+                }
+
+            } else {
+                List<String> tables = null;
+                if (connection != null) {
+                    tables = DbUtility.getTable(connection, schemaId);
+                }
+                object = JsonUtility.jsonForTables(tables, schemaId);
+
+            }
+            return Response.status(200).entity(object.toString(4)).build();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                    System.out.println("Connection Closed !!!");
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
             }
-
-        } else {
-            Connection connection = DbUtility.createConnection(connectionId);
-
-            List<String> tables = null;
-            if (connection != null) {
-                tables = DbUtility.getTable(connection, schemaId);
-            }
-            object = JsonUtility.jsonForTables(tables, schemaId);
         }
-        return Response.status(200).entity(object.toString(4)).build();
-
+        return null;
     }
 }

@@ -27,14 +27,23 @@ public class DbUtility {
      * @throws SQLException
      */
     public static Connection createConnection(ConnectionModel connData) throws ClassNotFoundException, SQLException {
+        String dbUrl = null;
         if (connData.getDbType().equalsIgnoreCase("oracle")) {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            String dbUrl = "jdbc:" + connData.getDbType().toLowerCase() + ":" + "thin" + ":@" + connData.getHost() + ":" + connData.getPort() + ":" + connData.getInstance();
+            dbUrl = "jdbc:" + connData.getDbType().toLowerCase() + ":" + "thin" + ":@" + connData.getHost() + ":" + connData.getPort() + ":" + connData.getInstance();
             return DriverManager.getConnection(dbUrl, connData.getUserName(), connData.getPassword());
         } else if (connData.getDbType().equalsIgnoreCase("derby")) {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
-            String dbUrl = ("jdbc:" + connData.getDbType().toLowerCase() + "://" + connData.getHost() + ":" + connData.getPort() + "/" + connData.getInstance() + ";" + "ssl=basic");
+            dbUrl = ("jdbc:" + connData.getDbType().toLowerCase() + "://" + connData.getHost() + ":" + connData.getPort() + "/" + connData.getInstance() + ";" + "ssl=basic");
             return DriverManager.getConnection(dbUrl);
+        } else if (connData.getDbType().equalsIgnoreCase("PSQL")) {
+            Class.forName("com.pervasive.jdbc.v2.Driver");
+            dbUrl = "jdbc:pervasive://192.168.137.1:1583/DEMODATA";
+            return DriverManager.getConnection(dbUrl);
+        } else if (connData.getDbType().equalsIgnoreCase("MySql")) {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            dbUrl = "jdbc:mysql://" + connData.getHost() + ":" + connData.getPort() + "/" + connData.getInstance();
+            return DriverManager.getConnection(dbUrl, "sandeep", "sandeep");
         }
         return null;
     }
@@ -73,11 +82,12 @@ public class DbUtility {
     public static List<String> getSchema(Connection conn) throws SQLException, ParseException, IOException, JSONException {
 
         DatabaseMetaData metaData = conn.getMetaData();
-        ResultSet rs = metaData.getSchemas("null", "%");
+        ResultSet rs = metaData.getSchemas();
+//        ResultSet rs = metaData.getSchemas("null", "%");
         List<String> schemaList = new ArrayList<>();
 
         while (rs.next()) {
-            schemaList.add(rs.getString("TABLE_SCHEM"));
+            schemaList.add(rs.getString(1));
         }
         rs.close();
         return schemaList;
@@ -114,4 +124,20 @@ public class DbUtility {
         return tables;
     }
 
+    /*public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String dbUrl = "jdbc:mysql://localhost:3306/information_schema";
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(dbUrl, "sandeep", "sandeep");
+            System.out.println(connection);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                connection.close();
+                System.out.println("Connection Closed !!!");
+            }
+        }
+    }*/
 }

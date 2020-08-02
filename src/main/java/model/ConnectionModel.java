@@ -31,7 +31,7 @@ public class ConnectionModel {
                 && instance != null && !instance.isEmpty()
                 && userName != null && !userName.isEmpty()
                 && password != null && !password.isEmpty()
-                ) {
+        ) {
             this.connectionName = connectionName;
             this.host = host;
             this.dbType = dbType;
