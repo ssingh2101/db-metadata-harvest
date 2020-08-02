@@ -1,0 +1,102 @@
+{"Connections": [
+    {
+        "connName": "sandeep",
+        "connectionId": "f1eefb51-baeb-410c-aefb-51baeba10c83",
+        "dbType": "oracle",
+        "host": "192.168.33.9",
+        "instance": "coddgid",
+        "password": "globalid",
+        "port": "1521",
+        "userName": "globalid"
+    },
+    {
+        "connName": "Nilesh8",
+        "connectionId": "fbfde076-9daf-4751-bde0-769daf87517a",
+        "dbType": "oracle",
+        "host": "192.168.33.9",
+        "instance": "coddgid",
+        "password": "globalid",
+        "port": "1521",
+        "userName": "globalid"
+    },
+    {
+        "connName": "sandeep_singh",
+        "connectionId": "d7190eea-e4f5-4b0a-990e-eae4f57b0ab6",
+        "dbType": "derby",
+        "host": "192.168.33.212",
+        "instance": "SALESDB",
+        "password": "globalid",
+        "port": "1530",
+        "userName": "globalid"
+    },
+    {
+        "connName": "SANDEEP",
+        "connectionId": "f8b56f62-d750-490a-b56f-62d750590af6",
+        "dbType": "oracle",
+        "host": "192.168.33.9",
+        "instance": "coddgid",
+        "password": "globalid",
+        "port": "1521",
+        "userName": "globalid"
+    },
+    {
+        "connName": "Nilesh",
+        "connectionId": "e12649ff-dad1-4373-a649-ffdad133736b",
+        "dbType": "oracle",
+        "host": "192.168.33.9",
+        "instance": "coddgid",
+        "password": "globalid",
+        "port": "1521",
+        "userName": "globalid"
+    },
+    {
+        "connName": "sandeep_singh1",
+        "connectionId": "ce54356b-21ef-4254-9435-6b21efa25426",
+        "dbType": "derby",
+        "host": "192.168.33.212",
+        "instance": "SALESDB",
+        "password": "globalid",
+        "port": "1530",
+        "userName": "globalid"
+    },
+    {
+        "connName": "Nilesh8",
+        "connectionId": "6bbc4013-2ca3-4300-bc40-132ca3d300c0",
+        "dbType": "oracle",
+        "host": "192.168.33.9",
+        "instance": "coddgid",
+        "password": "globalid",
+        "port": "1521",
+        "userName": "globalid"
+    },
+    {
+        "connName": "nilesh_mishra",
+        "connectionId": "96205bcc-cb6b-4016-a05b-cccb6b8016ea",
+        "dbType": "oracle",
+        "host": "192.168.33.9",
+        "instance": "coddgid",
+        "password": "globalid",
+        "port": "1521",
+        "userName": "globalid"
+    },
+    {
+        "connName": "sandeep",
+        "connectionId": "21322d00-e1eb-4c44-b22d-00e1eb8c444f",
+        "dbType": "derby",
+        "host": "192.168.33.212",
+        "instance": "CRM",
+        "password": "globalid",
+        "port": "1530",
+        "userName": "globalid"
+    },
+    {
+        "connName": "global",
+        "connectionId": "c1e16592-0849-469f-a165-920849269f35",
+        "dbType": "oracle",
+        "host": "192.168.33.9",
+        "instance": "coddgid",
+        "password": "globalid",
+        "port": "1521",
+        "userName": "globalid"
+    }
+]}

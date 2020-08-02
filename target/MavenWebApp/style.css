@@ -1,0 +1,322 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 7px 20px;
+    margin: 7px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: medium;
+}
+
+#heading {
+    padding: 8px 20px;
+    margin: 2px;
+    text-align: center;
+}
+
+#dbType {
+    width: 100%;
+    padding: 8px 20px;
+    margin: 7px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: medium;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 4px 24px;
+    border-radius: 8%;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#cancelButton {
+    background-color: indianred;
+}
+
+/*
+.main {
+    margin-left: 200px; !* Same as the width of the sidenav *!
+    padding: 20px;
+    margin-top: 90px;
+    height: 1500px;
+}
+*/
+
+.connForm {
+    padding: 4px;
+    border-radius: 12px;
+    border-collapse: collapse;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: -100px;
+    width: 100%; /* Full width */
+    /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #eeeeee;
+    margin: 8% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+body {
+    background-color: aliceblue;
+    margin: 0;
+}
+
+#sideMenu {
+    list-style: none;
+    overflow: hidden;
+}
+
+#menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    left: -1px;
+    top: 60px;
+    width: 100%;
+    border: 1px solid #e7e7e7;
+}
+
+li {
+    float: left;
+    border-right: 1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li b {
+    display: block;
+}
+
+li a:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+img {
+    height: 60px;
+    position: fixed;
+    top: 0;
+}
+
+#logo {
+    padding: 0;
+    margin-top: -90px;
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    background-color: white;
+}
+
+.sidenav {
+    list-style: none;
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 106px;
+    left: 0;
+    background-color: #222;
+    /*color: ghostwhite;*/
+    overflow-x: hidden;
+    padding-top: 5px;
+}
+
+/*
+#sideTable {
+    padding: 6px 6px 16px 0;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    !*display: inline-block;*!
+
+}
+*/
+
+.sidenav table {
+    text-decoration: none;
+    font-size: 20px;
+    color: floralwhite;
+}
+
+.sidenav tr:hover {
+    color: lightgrey;
+}
+
+#table3 {
+    display: none;
+    font-size: large;
+    font-family: arial, sans-serif;
+    margin-top: 6px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    padding: 18px;
+    background: #ececec;
+    box-shadow: 0 8px 16px 0 rgba(84, 84, 84, 0.2), 0 6px 20px 0 rgba(84, 84, 84, 0.2);
+}
+#dbList tr{
+    cursor: auto;
+}
+
+.tableData {
+    margin-left: 400px;
+    padding: 20px;
+    margin-top: 90px;
+}
+
+.schemaTable {
+    margin-left: 400px;
+    padding: 20px;
+    margin-top: 90px;
+}
+
+.dbTables {
+    padding: 20px;
+    margin-top: -30px;
+}
+
+#table3 {
+    display: none;
+    font-size: large;
+    font-family: arial, sans-serif;
+    margin-top: 6px;
+    margin-left: 400px;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    padding: 18px;
+    background: #ececec;
+    box-shadow: 0 8px 16px 0 rgba(84, 84, 84, 0.2), 0 6px 20px 0 rgba(84, 84, 84, 0.2);
+}
+
+#table2 {
+    display: none;
+    font-size: large;
+    font-family: arial, sans-serif;
+    margin-top: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    padding: 18px;
+    background: #ececec;
+    box-shadow: 0 8px 16px 0 rgba(84, 84, 84, 0.2), 0 6px 20px 0 rgba(84, 84, 84, 0.2);
+}
+
+.table {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    padding: 30px;
+    margin-top: -55px;
+}
+
+#dbList {
+    display: table;
+    font-size: large;
+    font-family: arial, sans-serif;
+    margin-top: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    padding: 18px;
+    background: #ececec;
+    box-shadow: 0 8px 16px 0 rgba(84, 84, 84, 0.2), 0 6px 20px 0 rgba(84, 84, 84, 0.2);
+
+}
+
+td, th {
+    text-align: center;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #c3c3ac;
+    color: rgb(0, 0, 0);
+}
+
+tr {
+    width: 25%;
+    cursor: pointer;
+
+}
+/*#connList {
+    cursor: pointer;
+    background-color: red;
+}*/
+
+.closeBtn {
+    display: block;
+    float: right;
+    margin-right: 10px;
+    font-size: 20px;
+    color: white;
+    border-radius: 100%;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    background-color: indianred;
+}
+
