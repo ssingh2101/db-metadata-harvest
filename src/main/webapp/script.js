@@ -42,7 +42,7 @@ $(document).ready(function () {
         $(function () {
             $("#sideTable").find("td").each(function (index) {
                 $(this).click(function () {
-                    
+
                     $("#dbTablesArea").html("");
                     $("#schemaTableArea").html("");
 
@@ -132,7 +132,7 @@ $(document).ready(function () {
     });
 
 // Dropdown Menu
-    var dbTypes = ['Derby', 'Oracle', 'MySql'];
+    var dbTypes = ['Derby', 'Oracle', 'MySql', 'PSQL'];
     var option = '';
     for (var i = 0; i < dbTypes.length; i++) {
         option += '<option value="' + dbTypes[i] + '">' + dbTypes[i] + '</option>';

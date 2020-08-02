@@ -11,7 +11,8 @@
 <body>
 
 <div id="logo" style="cursor: pointer">
-    <img id="logo1" src="logo.png">
+    <div class="nav-bar"></div>
+    <%--<img id="logo1" src="logo.png">--%>
 </div>
 
 <ul id="menu">

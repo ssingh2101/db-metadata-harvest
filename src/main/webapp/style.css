@@ -2,6 +2,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.nav-bar {
+    background: linear-gradient(-90deg, #84CF6A, #16C0B0);
+    height: 60px;
+    margin-bottom: 15px;
+}
+
 /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 100%;
@@ -218,7 +224,8 @@ img {
     background: #ececec;
     box-shadow: 0 8px 16px 0 rgba(84, 84, 84, 0.2), 0 6px 20px 0 rgba(84, 84, 84, 0.2);
 }
-#dbList tr{
+
+#dbList tr {
     cursor: auto;
 }
 
@@ -291,6 +298,7 @@ td, th {
     padding: 8px;
     border-bottom: 1px solid #ddd;
 }
+
 th {
     background-color: #c3c3ac;
     color: rgb(0, 0, 0);
@@ -301,6 +309,7 @@ tr {
     cursor: pointer;
 
 }
+
 /*#connList {
     cursor: pointer;
     background-color: red;
